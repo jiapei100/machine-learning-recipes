@@ -46,7 +46,7 @@ class ScrappyKNN():
         # Distance from test point to first training point
         best_dist = euc(row, self.X_train[0])  # Shortest distance found so far
         best_index = 0  # index of closest training point
-        for i in xrange(1, len(self.X_train)):  # Iterate over all other training points
+        for i in range(1, len(self.X_train)):  # Iterate over all other training points
             dist = euc(row, self.X_train[i])
             if dist < best_dist:  # Found closer, update
                 best_dist = dist
@@ -61,7 +61,7 @@ iris = datasets.load_iris()
 X = iris.data
 y = iris.target
 
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5)
 
@@ -74,4 +74,4 @@ predictions = my_classifier.predict(X_test)
 
 from sklearn.metrics import accuracy_score
 
-print accuracy_score(y_test, predictions)
+print (accuracy_score(y_test, predictions))
